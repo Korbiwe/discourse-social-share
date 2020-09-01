@@ -10,8 +10,9 @@ export default {
       const socialShareLinks = settings.social_share_links.split("|");
 
       socialShareLinks
-          .map((linkSection) => linkSection.split(','))
-          .forEach(([id, icon, title, url]) => {
+          .map((linkDescription) => linkDescription.split(','))
+          .forEach((linkDescription) => {
+            const [id, icon, title, url] = linkDescription.map((item) => item.trim());
             api.addSharingSource({
               id,
               icon,
